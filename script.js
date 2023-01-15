@@ -1,4 +1,4 @@
-</style><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 
 
@@ -11,7 +11,9 @@
       var howToFix = '';
       instanceCards.push({path,snippet,howToFix});
     });
-    var csv = Papa.unparse(instanceCards);
+    var csv = Papa.unparse(instanceCards, {
+        delimiter: ";",
+    });
     var link = document.createElement("a");
     link.download = "instanceCards.csv";
     link.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
